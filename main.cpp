@@ -6,39 +6,84 @@ int addNumbers ( int num1 ,  int num2 );
 void assignArray(int group[] ,  int arraySize );
 void arraySum ( int array1[] , int array2[] ,int* array3 ,  int arraySize );
 string addWords ( string word1 ,  string word2 );
-void options( string  name );
+void proccesOptions( string name );
+int getOption ( string name , int option );
+void optionOne ();
+void optionTwo ();
+void optionThree ();
 
 int main()
 {
 
-    string name ;
+  string name ;
   cout << " what's your name "   << endl;
   cin >>  name ;
-  options (name) ;
+  proccesOptions (name) ;
 
  }
 
-
-void options( string name ) {
-for( ; true ; ){
-    int option ;
-        cout << " \n Hello  " << name << endl ;
+int getOption ( string name , int option ) {
+ cout << " \n Hello  " << name << endl ;
   cout << " please choose the following \n 1- Add two numbers \n 2- Add two arrays \n 3- Add two strings \n 4- Quit " << endl;
   cin >> option;
+  return option;
+
+}
+
+
+void proccesOptions( string name ) {
+for( ; true ; ){
+
+    int option ;
+
+    option = getOption(name , option );
 
    if ( option == 1 ){
-      int num1 , num2 ;
+
+      optionOne();
+
+        }
+
+  else if ( option == 2 ) {
+
+    optionTwo();
+
+
+  }
+
+ else  if ( option == 3 ){
+
+    optionThree();
+
+  }
+
+  else if ( option == 4 ) {
+    break ;
+  }
+
+  else  {
+    cout << " wrong number try again" << endl;
+  }
+
+
+}
+}
+void optionOne () {
+
+ int num1 , num2 ;
 
     cout << " Add number 1 " << endl;
     cin >> num1;
+
     cout << " Add number 2" << endl;
     cin >> num2;
 
    cout << " The sum is " << num1 << " + " << num2 << " = " << addNumbers(num1 , num2) << endl;
-  }
+}
 
-  else if ( option == 2 ) {
-    int arraySize;
+void optionTwo (){
+
+int arraySize;
     cout << "enter the array size"<< endl;
     cin >> arraySize;
 
@@ -55,15 +100,16 @@ for( ; true ; ){
    arraySum(array1 , array2 , array3 , arraySize);
 
    cout << " the sum of the arrays is : " << endl;
-
    for ( int x = 0 ; x < arraySize ; x++ ){
 
     cout << array3[x] << "  " ;
    }
-  }
 
- else  if ( option == 3 ){
-    string word1 , word2 , word3;
+}
+
+void optionThree () {
+
+string word1 , word2 , word3;
     cout << " Enter word 1 " << endl;
     cin >> word1;
    cout << " Enter word 2 " << endl;
@@ -72,18 +118,6 @@ for( ; true ; ){
 
    cout << word1 << " + " << word2 << " = " << word3 << endl ;
 
-
-  }
-
-  else if ( option == 4 ) {
-    break ;
-  }
-  else if ( option != 1 && option != 2 && option != 3 && option != 4 ) {
-    cout << " wrong number try again" << endl;
-  }
-
-
-}
 }
 
 
@@ -119,3 +153,4 @@ string addWords ( string word1 , string word2 ){
  return word3;
 
 }
+
