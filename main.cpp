@@ -2,34 +2,88 @@
 #include<string>
 
 using namespace std;
-int addNumbers ( int num1 , int num2 );
-void assignArray(int group[] , int arraySize );
-void arraySum ( int array1[] , int array2[] ,int* array3 , int arraySize );
-string addWords ( string word1 , string word2 );
+int addNumbers ( int num1 ,  int num2 );
+void assignArray(int group[] ,  int arraySize );
+void arraySum ( int array1[] , int array2[] ,int* array3 ,  int arraySize );
+string addWords ( string word1 ,  string word2 );
+void proccesOptions( string name );
+int getOption ( string name , int option );
+void optionOne ();
+void optionTwo ();
+void optionThree ();
 
 int main()
 {
-    string name ;
-  int option , num1 , num2  , arraySize ;
-  cout << " what's your name "  << endl;
-  cin >> name ;
- for( ; true ; ){
-        cout << " \n Hello  " << name << endl ;
+
+  string name ;
+  cout << " what's your name "   << endl;
+  cin >>  name ;
+  proccesOptions (name) ;
+
+ }
+
+int getOption ( string name , int option ) {
+ cout << " \n Hello  " << name << endl ;
   cout << " please choose the following \n 1- Add two numbers \n 2- Add two arrays \n 3- Add two strings \n 4- Quit " << endl;
   cin >> option;
+  return option;
 
-  if ( option == 1 ){
+}
+
+
+void proccesOptions( string name ) {
+for( ; true ; ){
+
+    int option ;
+
+    option = getOption(name , option );
+
+   if ( option == 1 ){
+
+      optionOne();
+
+        }
+
+  else if ( option == 2 ) {
+
+    optionTwo();
+
+
+  }
+
+ else  if ( option == 3 ){
+
+    optionThree();
+
+  }
+
+  else if ( option == 4 ) {
+    break ;
+  }
+
+  else  {
+    cout << " wrong number try again" << endl;
+  }
+
+
+}
+}
+void optionOne () {
+
+ int num1 , num2 ;
 
     cout << " Add number 1 " << endl;
     cin >> num1;
+
     cout << " Add number 2" << endl;
     cin >> num2;
 
    cout << " The sum is " << num1 << " + " << num2 << " = " << addNumbers(num1 , num2) << endl;
-  }
+}
 
-  if ( option == 2 ) {
+void optionTwo (){
 
+int arraySize;
     cout << "enter the array size"<< endl;
     cin >> arraySize;
 
@@ -46,15 +100,16 @@ int main()
    arraySum(array1 , array2 , array3 , arraySize);
 
    cout << " the sum of the arrays is : " << endl;
-
    for ( int x = 0 ; x < arraySize ; x++ ){
 
     cout << array3[x] << "  " ;
    }
-  }
 
-  if ( option == 3 ){
-    string word1 , word2 , word3;
+}
+
+void optionThree () {
+
+string word1 , word2 , word3;
     cout << " Enter word 1 " << endl;
     cin >> word1;
    cout << " Enter word 2 " << endl;
@@ -63,51 +118,39 @@ int main()
 
    cout << word1 << " + " << word2 << " = " << word3 << endl ;
 
-
-  }
-
-  if ( option == 4 ) {
-    break ;
-  }
-  if ( option != 1 && option != 2 && option != 3 && option != 4 ) {
-    cout << " wrong number try again" << endl;
-  }
-
- }
-
-
-
 }
+
 
  int addNumbers ( int num1 , int num2 ) {
 
- int sum = num1 + num2 ;
- return sum;
+ int sum =  num1 + num2 ;
+ return  sum;
 
  }
 
- void assignArray(int group[] , int arraySize ) {
+ void assignArray(int group[] ,  int arraySize ) {
 
     int element;
 
-   for ( int x = 0; x < arraySize; x++ ){
-      cout << " enter element " << x << endl;
+   for ( int x = 0; x < arraySize;  x++ ){
+      cout << " enter element "  << x << endl;
     cin >> element;
-    group[x] = element;
+    group[x] =  element;
 
 }
  }
 
-void arraySum ( int array1[] , int array2[] ,int* array3 , int arraySize ){
+void arraySum ( int array1[] ,  int array2[] ,int* array3 , int arraySize ){
    array3[arraySize];
-  for ( int x = 0 ; x < arraySize ; x++ ){
-    array3[x] = array1[x] + array2 [x] ;
+  for ( int x = 0 ; x < arraySize ; x++  ){
+    array3[x] = array1[x] + array2 [x];
   }
 }
 string addWords ( string word1 , string word2 ){
 
- string word3;
+ string word3 ;
  word3 = word1 + word2;
  return word3;
 
 }
+
