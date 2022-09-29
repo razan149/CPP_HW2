@@ -9,6 +9,7 @@ string addWords ( string word1 , string word2 );
 
 int main()
 {
+
     string name ;
   int option , num1 , num2  , arraySize ;
   cout << " what's your name "  << endl;
